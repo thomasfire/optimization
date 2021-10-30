@@ -22,9 +22,10 @@ inline double second_d(double x) {
 }
 
 void cout_min(double a, double b) {
-    cout << "Min is " << min(a, b) << ", "
-         << "between " << a << " @" << a
-         << " and " << b << " @" << b << endl;
+    double a_ = func(a), b_ = func(b);
+    cout << "Min is " << min(a_, b_) << ", "
+         << "between " << a_ << " @" << a
+         << " and " << b_ << " @" << b << endl;
 }
 
 void bisection(double a, double b, double eps) {
@@ -36,7 +37,7 @@ void bisection(double a, double b, double eps) {
              << "F(X1) = " << y1 << ", " << "F(X2) = " << y2 << endl;
         (y1 > y2) ? bisection(c1, b, eps) : bisection(a, c2, eps);
     }
-    else cout_min(func(a), func(b));
+    else cout_min(a, b);
 }
 
 void golden_ratio(double a, double b, double eps) {
@@ -51,7 +52,7 @@ void golden_ratio(double a, double b, double eps) {
              << "F(X2) = " << y2 << endl;
         golden_ratio(a, b, eps);
     }
-    else cout_min(func(a), func(b));
+    else cout_min(a, b);
 }
 
 void secant(double a, double b, double eps) {
